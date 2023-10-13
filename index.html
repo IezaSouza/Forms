@@ -11,7 +11,7 @@
       <img src="exploring.png" alt="logo" width="450px" />
     </section>
     <h1>Let's Go Exploring - Complete the Form!</h1>
-    <form>
+    <form action="./story.html" method="GET">
       <label for="animal1">Animal 1:</label>
       <input type="text" id="animal1" name="animal1" required /><br />
       <br />
@@ -27,37 +27,51 @@
       <label for="greeting">Greeting:</label>
       <input type="text" name="greeting" id="greeting" required /><br />
       <br />
-      <label for="quantity">Number</label>
-      <input
-        type="number"
-        id="quantity"
-        name="quantity"
-        min="1"
-        max="100"
-        width="60px"
-        required
-      />
+      <label for="num">Number:</label>
+      <input type="num" name="num" id="num" required />
       <br />
       <br />
       <label for="how">I prefer to:</label>
-      <select id="I prefer to:">
-        <option value="flew✈️">Flew</option>
+      <select id="how" name="how" required>
+        <option value="flew✈️">Fly</option>
         <option value="climbed up🧗">Climb</option>
         <option value="walked🚶">Walk</option>
       </select>
       <br />
       <br />
-      <label for="textarea">Meaningful Message:</label><br />
+      <label for="message">Meaningful Message:</label><br />
       <textarea
-        id="textarea"
-        name="textarea"
+        id="message"
+        name="message"
         rows="8"
         cols="35"
         required
       ></textarea
       ><br />
       <br />
-      <button type="submit">Form my storie</button>
+      <input type="submit" value="Form my Story" onclick="getData()" />
     </form>
+    <script>
+      function getData() {
+        //gettting the values
+        let animal1 = document.getElementById("animal1").value;
+        let animal2 = document.getElementById("animal2").value;
+        let color1 = document.getElementById("color1").value;
+        let element1 = document.getElementById("element1").value;
+        let greeting = document.getElementById("greeting").value;
+        let how = document.getElementById("how").value;
+        let message = document.getElementById("message").value;
+        let number = document.getElementById("num").value;
+        //saving the values in local storage
+        localStorage.setItem("firstAnimal", animal1);
+        localStorage.setItem("secondAnimal", animal2);
+        localStorage.setItem("colorOne", color1);
+        localStorage.setItem("elementOne", element1);
+        localStorage.setItem("howTo", how);
+        localStorage.setItem("message", message);
+        localStorage.setItem("greeting", greeting);
+        localStorage.setItem("numberOfTimes", number);
+      }
+    </script>
   </body>
 </html>
